@@ -24,6 +24,12 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Toast.makeText(null,"Scanning", Toast.LENGTH_SHORT).show();
 
+
+
+
+
+
+                
             }
         });
 
