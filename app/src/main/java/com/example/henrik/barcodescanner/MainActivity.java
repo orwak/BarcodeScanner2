@@ -17,6 +17,12 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLConnection;
 
 
@@ -28,10 +34,6 @@ public class MainActivity extends ActionBarActivity {
     private boolean loginSuccess = false;
     protected int loginAttempts = 0;
 
-    HttpParams myParams = new BasicHttpParams();
-    URLConnection openConnection;
-
-    HttpClient httpclient = new DefaultHttpClient(myParams );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +45,30 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Scanning", Toast.LENGTH_SHORT).show();
+                HttpComClass hcc = new HttpComClass();
 
 
+    }
 
-
-
-
-                
+    private void readStream(InputStream in) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(in));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
-        });
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
