@@ -1,6 +1,7 @@
-<resources>
+<string>
     <string name="app_name">Barcode Scanner</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-</resources>
+    <string name="product_details">Stereolab  The free design CD</string>
+    <string name="bar_code">122245 5454-5</string>
+    <string name="btn_scan">Scan</string>
+    <string name="action_settings">f1</string>
+</string>

@@ -10,8 +10,28 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import java.net.URLConnection;
+
 
 public class MainActivity extends ActionBarActivity {
+
+
+    private String user = "qwerty";
+    private String pass = "12345";
+    private boolean loginSuccess = false;
+    protected int loginAttempts = 0;
+
+    HttpParams myParams = new BasicHttpParams();
+    URLConnection openConnection;
+
+    HttpClient httpclient = new DefaultHttpClient(myParams );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(null,"Scanning", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Scanning", Toast.LENGTH_SHORT).show();
 
 
 
